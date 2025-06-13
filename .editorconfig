@@ -17,7 +17,7 @@ trim_trailing_whitespace = true
 # Kotlin specific settings
 [*.{kt,kts}]
 # Follow Kotlin style guide
-ktlint_code_style = official
+ktlint_code_style = ktlint_official
 # Disable wildcard imports
 ij_kotlin_imports_layout = *,java.**,javax.**,kotlin.**,^
 ij_kotlin_allow_trailing_comma = true

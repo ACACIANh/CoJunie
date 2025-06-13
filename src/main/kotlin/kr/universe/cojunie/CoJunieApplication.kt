@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class CoJunieApplication
 
 fun main(args: Array<String>) {
-	runApplication<CoJunieApplication>(*args)
+    runApplication<CoJunieApplication>(*args)
 }
