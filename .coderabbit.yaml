@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+
+# 언어 설정 (한국어)
+language: "ko-KR"
+
+# 얼리 액세스 기능
+early_access: false
+
+# 리뷰 설정
+reviews:
+  # 리뷰 프로필 (chill: 부드러운 톤)
+  profile: "chill"
+
+  # 리뷰 스타일 (focused: 집중적 리뷰)
+  review_style: "focused"
+
+  # 커스텀 리뷰 지침
+  custom_instructions: |
+    아키텍처 관점에서 다음을 중점적으로 리뷰해주세요:
+    - 레이어간 의존성
+    - SOLID 원칙 준수
+    - 패키지 구조와 모듈화
+    - Spring Boot의 관례 준수
+
+  # 변경 요청 워크플로우
+  request_changes_workflow: false
+
+  # 고수준 요약 활성화
+  high_level_summary: true
+
+  # 시/운율 스타일 리뷰 (재미있는 요소)
+  poem: true
+
+  # 리뷰 상태 표시
+  review_status: true
+
+  # 워크스루 접기
+  collapse_walkthrough: false
+
+  # 자동 리뷰 설정
+  auto_review:
+    enabled: true
+    drafts: false
+
+# 채팅 설정
+chat:
+  # 자동 응답 활성화
+  auto_reply: true
