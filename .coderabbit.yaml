@@ -41,6 +41,8 @@ reviews:
   auto_review:
     enabled: true
     drafts: false
+    base_branches:
+      - "/*"
 
 # 채팅 설정
 chat:
