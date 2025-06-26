@@ -8,11 +8,11 @@ dependencies {
     )
 
     // Support module dependencies
-    implementation(project(":logging"))
+    implementation(project(":system:logging"))
 
     // Test dependencies
     testImplementation(
         "org.springframework.boot:spring-boot-starter-test:${rootProject.extra["springBootVersion"]}",
     )
-    testImplementation(project(":test-helper"))
+    testImplementation(project(":testing:test-helper"))
 }
