@@ -15,8 +15,11 @@ allprojects {
         mavenCentral()
     }
 
-    // Spring Boot version for all modules
+    // Centralized version management
     extra["springBootVersion"] = "3.5.0"
+    extra["slf4jVersion"] = "2.0.9"
+    extra["micrometerVersion"] = "1.12.0"
+    extra["springVersion"] = "6.1.2"
 }
 
 subprojects {
@@ -24,9 +27,16 @@ subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
     apply(plugin = "java")
 
-    // Apply Spring plugins to all modules
-    apply(plugin = "org.jetbrains.kotlin.plugin.spring")
-    apply(plugin = "io.spring.dependency-management")
+    // Apply Spring plugins only to modules that need them
+    val springModules = setOf(
+        "core-api", "core-domain", "db-core", "redis", "monitoring",
+        "notification", "oauth-client", "swagger", "aws", "logging"
+    )
+    
+    if (project.name in springModules) {
+        apply(plugin = "org.jetbrains.kotlin.plugin.spring")
+        apply(plugin = "io.spring.dependency-management")
+    }
 
     // Apply JPA plugin to database-related modules
     if (project.name == "db-core") {

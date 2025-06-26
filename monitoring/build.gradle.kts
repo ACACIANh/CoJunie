@@ -3,7 +3,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator:${rootProject.extra["springBootVersion"]}")
 
     // Micrometer for metrics
-    implementation("io.micrometer:micrometer-registry-prometheus:1.12.0")
+    implementation("io.micrometer:micrometer-registry-prometheus:${rootProject.extra["micrometerVersion"]}")
 
     // Support module dependencies
     implementation(project(":logging"))

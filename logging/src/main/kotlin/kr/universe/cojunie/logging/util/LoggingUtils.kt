@@ -9,6 +9,9 @@ import java.util.UUID
  * Utility class for logging
  */
 object LoggingUtils {
+    const val REQUEST_ID_KEY = "requestId"
+    const val USER_ID_KEY = "userId"
+
     /**
      * Get a logger for the specified class
      * @param clazz The class to get a logger for
@@ -23,7 +26,7 @@ object LoggingUtils {
      * @param requestId The request ID (defaults to a random UUID)
      */
     fun setRequestId(requestId: String = UUID.randomUUID().toString()) {
-        MDC.put("requestId", requestId)
+        MDC.put(REQUEST_ID_KEY, requestId)
     }
 
     /**
@@ -31,13 +34,21 @@ object LoggingUtils {
      * @param userId The user ID
      */
     fun setUserId(userId: String) {
-        MDC.put("userId", userId)
+        MDC.put(USER_ID_KEY, userId)
     }
 
     /**
-     * Clear the MDC
+     * Clear specific MDC keys
      */
-    fun clearMDC() {
+    fun clearRequestContext() {
+        MDC.remove(REQUEST_ID_KEY)
+        MDC.remove(USER_ID_KEY)
+    }
+
+    /**
+     * Clear the entire MDC (use with caution)
+     */
+    fun clearAllMDC() {
         MDC.clear()
     }
 
@@ -55,7 +66,7 @@ object LoggingUtils {
             setRequestId(requestId)
             return block()
         } finally {
-            clearMDC()
+            clearRequestContext()
         }
     }
 }

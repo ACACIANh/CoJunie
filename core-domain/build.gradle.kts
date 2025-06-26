@@ -5,7 +5,7 @@ dependencies {
 
     // Spring dependencies
     implementation("org.springframework.boot:spring-boot-starter:${rootProject.extra["springBootVersion"]}")
-    implementation("org.springframework:spring-tx:6.1.2")
+    implementation("org.springframework:spring-tx:${rootProject.extra["springVersion"]}")
 
     // Support module dependencies
     implementation(project(":logging"))

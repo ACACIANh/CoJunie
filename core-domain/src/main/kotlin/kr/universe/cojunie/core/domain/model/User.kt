@@ -9,6 +9,6 @@ data class User(
     val id: Long? = null,
     val username: String,
     val email: String,
-    val createdAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime = LocalDateTime.now(),
+    val createdAt: LocalDateTime? = null,
+    val updatedAt: LocalDateTime? = null,
 )

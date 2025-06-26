@@ -21,10 +21,20 @@ object TestUtils {
     /**
      * Extension function to apply common result matchers and print the response
      */
-    fun ResultActions.andExpectAll(vararg matchers: ResultMatcher): ResultActions {
+    fun ResultActions.andExpectAllMatchers(vararg matchers: ResultMatcher): ResultActions {
+        var result = this.andDo(MockMvcResultHandlers.print())
+        matchers.forEach { matcher ->
+            result = result.andExpect(matcher)
+        }
+        return result
+    }
+
+    /**
+     * Extension function to print response and expect OK status
+     */
+    fun ResultActions.andPrintAndExpectOk(): ResultActions {
         return this.andDo(MockMvcResultHandlers.print())
             .andExpect(MockMvcResultMatchers.status().isOk)
-            .andExpectAll(*matchers)
     }
 
     /**
