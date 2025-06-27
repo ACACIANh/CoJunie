@@ -1,6 +1,6 @@
 dependencies {
     // Test helper module
-    api(project(":test-helper"))
+    api(project(":testing:test-helper"))
 
     // Testcontainers
     api("org.testcontainers:testcontainers:1.19.3")
